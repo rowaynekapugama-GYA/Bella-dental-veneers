@@ -50,13 +50,20 @@ section{padding:88px 0}
 @media(max-width:640px){.top-phone span{display:none}.topbar img{height:28px}}
 
 /* ---------- hero ---------- */
-.hero{padding:72px 0 80px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-180px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(165,186,178,.35),transparent 68%);pointer-events:none}
+.hero{padding:72px 0 80px;position:relative;overflow:hidden;background:var(--pine)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(16,28,23,.88) 0%,rgba(16,28,23,.74) 45%,rgba(16,28,23,.6) 100%)}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero .eyebrow{color:var(--sage)}
+.hero h1{color:var(--white)}
+.hero h1 em{color:var(--sage)}
+.hero .lede{color:rgba(253,252,249,.85)}
+.hero-ticks li{color:var(--white)}
 .rating-badge{display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:600;color:var(--pine);margin:22px 0 4px;box-shadow:0 4px 18px rgba(30,51,44,.07)}
 .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
 .hero h1{font-size:clamp(38px,5.1vw,62px);margin-top:18px}
-.hero .lede{font-size:18px;color:#4a5450;max-width:52ch;margin-top:20px}
+.hero .lede{font-size:18px;color:rgba(253,252,249,.85);max-width:52ch;margin-top:20px}
 .hero-ticks{list-style:none;margin-top:26px;display:grid;gap:11px}
 .hero-ticks li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;font-weight:500}
 .hero-ticks svg{flex:0 0 20px;margin-top:2px}
@@ -260,6 +267,11 @@ footer strong{color:rgba(253,252,249,.85)}
 
 <!-- ============ HERO ============ -->
 <header class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://belladental.com.au/wp-content/uploads/2023/09/bella-dental-video.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Porcelain &amp; Composite Veneers &mdash; Penrith</span>
