@@ -218,6 +218,16 @@ footer strong{color:rgba(253,252,249,.85)}
 .fbottom{border-top:1px solid rgba(253,252,249,.15);margin-top:28px;padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .fbottom a{color:rgba(253,252,249,.75);text-decoration:none}
 
+/* ---------- free consult flash badge ---------- */
+.free-badge{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--white);font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;border-radius:999px;margin:20px 0 6px;animation:flashPulse 1.6s ease-in-out infinite;box-shadow:0 0 0 0 rgba(194,154,75,.55)}
+.free-badge .dot{width:9px;height:9px;border-radius:50%;background:var(--white);animation:blinkDot 1.6s ease-in-out infinite}
+@keyframes flashPulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(194,154,75,.55)}
+  50%{transform:scale(1.045);box-shadow:0 0 0 14px rgba(194,154,75,0)}
+}
+@keyframes blinkDot{0%,100%{opacity:1}50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.free-badge,.free-badge .dot{animation:none}}
+
 /* ---------- modal ---------- */
 .modal-overlay{position:fixed;inset:0;background:rgba(30,51,44,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s}
 .modal-overlay.open{display:flex}
@@ -254,6 +264,7 @@ footer strong{color:rgba(253,252,249,.85)}
     <div>
       <span class="eyebrow">Porcelain &amp; Composite Veneers &mdash; Penrith</span>
       <div><span class="rating-badge"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9 from 495+ Google Reviews</span></div>
+      <div><span class="free-badge"><span class="dot"></span>Free Veneers Consultation</span></div>
       <h1>Stop hiding your smile. <em>Start loving it.</em></h1>
       <p class="lede">Chips, stains, gaps or worn edges &mdash; custom porcelain and composite veneers from Penrith's multi-award-winning dental team can transform your smile in as little as two visits.</p>
       <ul class="hero-ticks">
@@ -267,7 +278,7 @@ footer strong{color:rgba(253,252,249,.85)}
     <!-- SMILEOX FORM: replace this form with the SmileOx / LeadConnector embed, or point the action at the SmileOx webhook. Field names kept simple: full_name, phone, email, treatment -->
     <div class="form-card" id="book">
       <form id="lead-form" novalidate>
-        <h3>Book your veneers consultation</h3>
+        <h3>Book your <em style="font-family:'Fraunces',serif">free</em> veneers consultation</h3>
         <p class="sub">Fill in your details and our friendly team will be in touch to arrange a time that suits you.</p>
         <div class="field" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0">
           <div>
