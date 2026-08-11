@@ -15,12 +15,12 @@
   --bone:#E3E0D4;
   --sage:#A5BAB2;
   --sage-deep:#7E978E;
-  --pine:#1E332C;
-  --pine-soft:#2A423A;
+  --pine:#262626;
+  --pine-soft:#3A3A3A;
   --ink:#20241F;
   --gold:#C29A4B;
   --white:#FDFCF9;
-  --line:rgba(30,51,44,.14);
+  --line:rgba(38,38,38,.14);
   --radius:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -53,14 +53,14 @@ section{padding:88px 0}
 .hero{padding:72px 0 80px;position:relative;overflow:hidden;background:var(--pine)}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg video{width:100%;height:100%;object-fit:cover;display:block}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(16,28,23,.88) 0%,rgba(16,28,23,.74) 45%,rgba(16,28,23,.6) 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(18,18,18,.88) 0%,rgba(18,18,18,.74) 45%,rgba(18,18,18,.6) 100%)}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;z-index:1}
 .hero .eyebrow{color:var(--sage)}
 .hero h1{color:var(--white)}
 .hero h1 em{color:var(--sage)}
 .hero .lede{color:rgba(253,252,249,.85)}
 .hero-ticks li{color:var(--white)}
-.rating-badge{display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:600;color:var(--pine);margin:22px 0 4px;box-shadow:0 4px 18px rgba(30,51,44,.07)}
+.rating-badge{display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:600;color:var(--pine);margin:22px 0 4px;box-shadow:0 4px 18px rgba(38,38,38,.07)}
 .stars{color:var(--gold);letter-spacing:2px;font-size:15px}
 .hero h1{font-size:clamp(38px,5.1vw,62px);margin-top:18px}
 .hero .lede{font-size:18px;color:rgba(253,252,249,.85);max-width:52ch;margin-top:20px}
@@ -69,7 +69,7 @@ section{padding:88px 0}
 .hero-ticks svg{flex:0 0 20px;margin-top:2px}
 
 /* form card */
-.form-card{background:var(--white);border-radius:26px;padding:34px 32px;box-shadow:0 24px 60px rgba(30,51,44,.14);border:1px solid var(--line)}
+.form-card{background:var(--white);border-radius:26px;padding:34px 32px;box-shadow:0 24px 60px rgba(38,38,38,.14);border:1px solid var(--line)}
 .form-card h3{font-size:26px;margin-bottom:4px}
 .form-card .sub{font-size:14.5px;color:#5a635f;margin-bottom:22px}
 .field{margin-bottom:14px}
@@ -132,7 +132,7 @@ section{padding:88px 0}
 .ba-pair .imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .ba-pair figure{position:relative;border-radius:14px;overflow:hidden}
 .ba-pair figure img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
-.ba-label{position:absolute;left:10px;bottom:10px;background:rgba(30,51,44,.85);color:var(--white);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.ba-label{position:absolute;left:10px;bottom:10px;background:rgba(34,34,34,.85);color:var(--white);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 .ba-label.after{background:var(--sage);color:var(--pine)}
 .ba-pair figcaption.treat{position:static;margin-top:12px;font-size:14px;color:#5a635f;text-align:center}
 .ba-stack{background:var(--white);border-radius:var(--radius);padding:18px;border:1px solid var(--line)}
@@ -237,7 +237,7 @@ footer strong{color:rgba(253,252,249,.85)}
 @media(prefers-reduced-motion:reduce){.free-badge,.free-badge .dot{animation:none}}
 
 /* ---------- modal ---------- */
-.modal-overlay{position:fixed;inset:0;background:rgba(30,51,44,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s}
+.modal-overlay{position:fixed;inset:0;background:rgba(30,30,30,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s}
 .modal-overlay.open{display:flex}
 .modal-overlay.show{opacity:1}
 .modal{background:var(--white);border-radius:26px;max-width:480px;width:100%;padding:38px 34px 30px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:translateY(14px) scale(.98);transition:transform .25s;max-height:92vh;overflow-y:auto}
@@ -281,10 +281,10 @@ footer strong{color:rgba(253,252,249,.85)}
       <h1>Stop hiding your smile. <em>Start loving it.</em></h1>
       <p class="lede">Chips, stains, gaps or worn edges &mdash; custom porcelain and composite veneers from Penrith's multi-award-winning dental team can transform your smile in as little as two visits.</p>
       <ul class="hero-ticks">
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-award-winning clinic, trusted by 495+ reviewers</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Conservative, enamel-preserving approach</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified BIOCLEAR provider for composite makeovers</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Interest-free payment plans available</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-award-winning clinic, trusted by 495+ reviewers</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Conservative, enamel-preserving approach</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified BIOCLEAR provider for composite makeovers</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Interest-free payment plans available</li>
       </ul>
     </div>
 
@@ -373,7 +373,7 @@ footer strong{color:rgba(253,252,249,.85)}
     <div class="video-frame reveal" id="video-frame">
       <button class="video-poster" id="video-poster" aria-label="Play patient testimonial video">
         <img src="https://i.ytimg.com/vi/Vig8uVHHtxI/maxresdefault.jpg" alt="Patient testimonial video preview" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/Vig8uVHHtxI/hqdefault.jpg'">
-        <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 4.5v15l13-7.5-13-7.5z" fill="#1E332C"/></svg></span>
+        <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M7 4.5v15l13-7.5-13-7.5z" fill="#262626"/></svg></span>
       </button>
     </div>
     <p class="video-alt reveal" style="color:rgba(253,252,249,.7)">Trouble playing the video? <a href="https://youtu.be/Vig8uVHHtxI" target="_blank" rel="noopener">Watch it on YouTube</a></p>
@@ -412,10 +412,10 @@ footer strong{color:rgba(253,252,249,.85)}
         <h3>Porcelain veneers</h3>
         <p>Ultra-thin, durable porcelain shells, custom-designed and meticulously bonded to the front of your teeth for a flawless, natural-looking smile that lasts.</p>
         <ul>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Exceptional stain resistance and durability</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Lifelike translucency that mimics natural enamel</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Ideal for discolouration, chips, gaps and misshapen teeth</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Minimal enamel removal &mdash; a conservative approach</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Exceptional stain resistance and durability</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Lifelike translucency that mimics natural enamel</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Ideal for discolouration, chips, gaps and misshapen teeth</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Minimal enamel removal &mdash; a conservative approach</li>
         </ul>
       </div>
       <div class="type-card reveal">
@@ -423,10 +423,10 @@ footer strong{color:rgba(253,252,249,.85)}
         <h3>Composite veneers</h3>
         <p>Tooth-coloured resin artfully layered and sculpted directly onto your teeth &mdash; including the advanced BIOCLEAR method our clinic is certified to provide.</p>
         <ul>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Often completed in a single visit</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Little to no enamel removal &mdash; highly conservative</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>A more accessible investment for many smiles</li>
-          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#1E332C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Easily repaired and refreshed over time</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Often completed in a single visit</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Little to no enamel removal &mdash; highly conservative</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>A more accessible investment for many smiles</li>
+          <li><svg viewBox="0 0 18 18" width="18" height="18" fill="none"><circle cx="9" cy="9" r="9" fill="#E3E0D4"/><path d="M5.5 9.3l2.2 2.2 4.8-4.8" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Easily repaired and refreshed over time</li>
         </ul>
       </div>
     </div>
@@ -458,32 +458,32 @@ footer strong{color:rgba(253,252,249,.85)}
       <svg viewBox="0 0 1000 340" role="img" aria-label="Diagram showing three stages: natural tooth with imperfections, a thin custom veneer shell, and the veneer bonded to the tooth">
         <!-- Stage 1: natural tooth -->
         <g>
-          <path d="M110 60 C90 60 75 78 75 105 C75 150 88 210 105 240 C112 252 122 252 128 240 C133 230 136 218 140 218 C144 218 147 230 152 240 C158 252 168 252 175 240 C192 210 205 150 205 105 C205 78 190 60 170 60 C155 60 148 70 140 70 C132 70 125 60 110 60 Z" fill="#EFECE3" stroke="#1E332C" stroke-width="3"/>
+          <path d="M110 60 C90 60 75 78 75 105 C75 150 88 210 105 240 C112 252 122 252 128 240 C133 230 136 218 140 218 C144 218 147 230 152 240 C158 252 168 252 175 240 C192 210 205 150 205 105 C205 78 190 60 170 60 C155 60 148 70 140 70 C132 70 125 60 110 60 Z" fill="#EFECE3" stroke="#262626" stroke-width="3"/>
           <path d="M100 95 q10 14 2 30" stroke="#C2B79B" stroke-width="6" fill="none" stroke-linecap="round"/>
           <path d="M160 110 q8 12 2 26" stroke="#C2B79B" stroke-width="6" fill="none" stroke-linecap="round"/>
           <path d="M126 76 l14 12" stroke="#B0A488" stroke-width="4" stroke-linecap="round"/>
-          <text x="140" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#1E332C">1. Your natural tooth</text>
+          <text x="140" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#262626">1. Your natural tooth</text>
           <text x="140" y="324" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="14.5" fill="#6a726e">Stains, chips, gaps or wear</text>
         </g>
         <path d="M255 150 h60 m0 0 l-14 -11 m14 11 l-14 11" stroke="#A5BAB2" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <!-- Stage 2: veneer shell -->
         <g>
-          <path d="M430 62 C412 64 400 82 400 108 C400 152 412 208 428 238 C433 248 440 250 445 242 C430 205 422 152 422 110 C422 86 432 70 448 66 C442 62 436 61 430 62 Z" fill="#A5BAB2" stroke="#1E332C" stroke-width="3"/>
-          <path d="M470 60 C452 60 440 78 440 105 C440 150 452 210 468 240" fill="none" stroke="#1E332C" stroke-width="3" stroke-dasharray="7 7" opacity=".45"/>
-          <text x="470" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#1E332C">2. A custom-made veneer</text>
+          <path d="M430 62 C412 64 400 82 400 108 C400 152 412 208 428 238 C433 248 440 250 445 242 C430 205 422 152 422 110 C422 86 432 70 448 66 C442 62 436 61 430 62 Z" fill="#A5BAB2" stroke="#262626" stroke-width="3"/>
+          <path d="M470 60 C452 60 440 78 440 105 C440 150 452 210 468 240" fill="none" stroke="#262626" stroke-width="3" stroke-dasharray="7 7" opacity=".45"/>
+          <text x="470" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#262626">2. A custom-made veneer</text>
           <text x="470" y="324" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="14.5" fill="#6a726e">Ultra-thin porcelain or sculpted composite</text>
         </g>
         <path d="M590 150 h60 m0 0 l-14 -11 m14 11 l-14 11" stroke="#A5BAB2" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <!-- Stage 3: bonded -->
         <g>
-          <path d="M790 60 C770 60 755 78 755 105 C755 150 768 210 785 240 C792 252 802 252 808 240 C813 230 816 218 820 218 C824 218 827 230 832 240 C838 252 848 252 855 240 C872 210 885 150 885 105 C885 78 870 60 850 60 C835 60 828 70 820 70 C812 70 805 60 790 60 Z" fill="#FDFCF9" stroke="#1E332C" stroke-width="3"/>
+          <path d="M790 60 C770 60 755 78 755 105 C755 150 768 210 785 240 C792 252 802 252 808 240 C813 230 816 218 820 218 C824 218 827 230 832 240 C838 252 848 252 855 240 C872 210 885 150 885 105 C885 78 870 60 850 60 C835 60 828 70 820 70 C812 70 805 60 790 60 Z" fill="#FDFCF9" stroke="#262626" stroke-width="3"/>
           <path d="M790 60 C770 60 755 78 755 105 C755 150 768 210 785 240" fill="none" stroke="#A5BAB2" stroke-width="8" stroke-linecap="round"/>
           <path d="M778 108 q14 -18 34 -22" stroke="#E3E0D4" stroke-width="7" fill="none" stroke-linecap="round"/>
           <g stroke="#C29A4B" stroke-width="3.5" stroke-linecap="round">
             <path d="M905 78 v20 M895 88 h20"/>
             <path d="M735 180 v14 M728 187 h14"/>
           </g>
-          <text x="820" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#1E332C">3. Bonded seamlessly</text>
+          <text x="820" y="300" text-anchor="middle" font-family="Fraunces, serif" font-size="21" fill="#262626">3. Bonded seamlessly</text>
           <text x="820" y="324" text-anchor="middle" font-family="Instrument Sans, sans-serif" font-size="14.5" fill="#6a726e">A flawless, natural-looking smile</text>
         </g>
       </svg>
@@ -524,11 +524,11 @@ footer strong{color:rgba(253,252,249,.85)}
       <p>Dr Geoffrey Wan graduated from The University of Sydney in 2006 and has practised in Sydney, Alice Springs, Dubbo and the United States. His greatest passion within dentistry is complex rehabilitative and restorative work &mdash; the artistry behind every smile makeover at Bella Dental.</p>
       <p>His goal is dentistry that is pain-free and anxiety-free, where you're in control of your dental health and fully informed every step of the way.</p>
       <ul class="doc-creds">
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Registered with the AHPRA Dental Board</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Member, Australian Dental Association</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fellow, Academy of General Dentistry</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified BIOCLEAR provider</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mentor, General Dental Residency</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Registered with the AHPRA Dental Board</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Member, Australian Dental Association</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Fellow, Academy of General Dentistry</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified BIOCLEAR provider</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mentor, General Dental Residency</li>
       </ul>
     </div>
   </div>
@@ -539,10 +539,10 @@ footer strong{color:rgba(253,252,249,.85)}
       <p>Born and raised in Sydney's western suburbs, Dr Alfred Tao completed a Bachelor of Pharmacy before earning his Bachelor of Dentistry with honours at The University of Sydney. He treats the whole patient, not just the teeth &mdash; recognising the important link between oral health and overall health.</p>
       <p>Alfred takes the time to get to know each patient, explaining treatment options tailored to their individual needs and wants.</p>
       <ul class="doc-creds">
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>B.Dent (Hons), B.Pharm &mdash; University of Sydney</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Special interest in cosmetic dentistry &amp; implants</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Orthodontics &amp; minor oral surgery</li>
-        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ongoing training in Australia &amp; overseas</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>B.Dent (Hons), B.Pharm &mdash; University of Sydney</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Special interest in cosmetic dentistry &amp; implants</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Orthodontics &amp; minor oral surgery</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ongoing training in Australia &amp; overseas</li>
       </ul>
       <a class="btn js-open-modal" href="#book" style="margin-top:28px">Book with our team</a>
     </div>
