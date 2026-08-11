@@ -174,8 +174,9 @@ section{padding:88px 0}
 .doc-creds{list-style:none;margin-top:24px;display:grid;gap:11px}
 .doc-creds li{display:flex;gap:11px;align-items:flex-start;font-size:15px;font-weight:500}
 .doc-creds svg{flex:0 0 20px;margin-top:2px}
+.doc-grid-alt{grid-template-columns:1.1fr .9fr}
 .doc-copy p{color:#4a5450;margin-top:16px;font-size:16px}
-@media(max-width:880px){.doc-grid{grid-template-columns:1fr;gap:40px}.doc-photo{max-width:380px;margin:0 auto}}
+@media(max-width:880px){.doc-grid{grid-template-columns:1fr;gap:40px}.doc-photo{max-width:380px;margin:0 auto}.doc-grid-alt .doc-photo{order:-1}}
 
 /* ---------- payment ---------- */
 .pay-section{background:var(--bone)}
@@ -512,12 +513,12 @@ footer strong{color:rgba(253,252,249,.85)}
 
 
 
-<!-- ============ DOCTOR PROFILE ============ -->
+<!-- ============ DOCTOR PROFILES ============ -->
 <section>
   <div class="wrap doc-grid">
     <div class="doc-photo reveal"><img src="assets/dr-geoff-wan.jpg" alt="Dr Geoff Wan, Principal Dentist at Bella Dental Penrith"></div>
     <div class="doc-copy reveal">
-      <span class="eyebrow">Meet your dentist</span>
+      <span class="eyebrow">Meet your dentists</span>
       <h2 style="font-size:clamp(30px,3.8vw,44px);margin-top:16px">Dr Geoff Wan</h2>
       <p style="font-weight:600;color:var(--pine);margin-top:8px">Principal Dentist | BSc Chem, B.Dent, FAGD</p>
       <p>Dr Geoffrey Wan graduated from The University of Sydney in 2006 and has practised in Sydney, Alice Springs, Dubbo and the United States. His greatest passion within dentistry is complex rehabilitative and restorative work &mdash; the artistry behind every smile makeover at Bella Dental.</p>
@@ -529,8 +530,23 @@ footer strong{color:rgba(253,252,249,.85)}
         <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Certified BIOCLEAR provider</li>
         <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Mentor, General Dental Residency</li>
       </ul>
+    </div>
+  </div>
+  <div class="wrap doc-grid doc-grid-alt" style="margin-top:76px">
+    <div class="doc-copy reveal">
+      <h2 style="font-size:clamp(30px,3.8vw,44px)">Dr Alfred Tao</h2>
+      <p style="font-weight:600;color:var(--pine);margin-top:8px">Dentist | B.Dent (Hons), B.Pharm</p>
+      <p>Born and raised in Sydney's western suburbs, Dr Alfred Tao completed a Bachelor of Pharmacy before earning his Bachelor of Dentistry with honours at The University of Sydney. He treats the whole patient, not just the teeth &mdash; recognising the important link between oral health and overall health.</p>
+      <p>Alfred takes the time to get to know each patient, explaining treatment options tailored to their individual needs and wants.</p>
+      <ul class="doc-creds">
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>B.Dent (Hons), B.Pharm &mdash; University of Sydney</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Special interest in cosmetic dentistry &amp; implants</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Orthodontics &amp; minor oral surgery</li>
+        <li><svg viewBox="0 0 20 20" width="20" height="20" fill="none"><circle cx="10" cy="10" r="10" fill="#A5BAB2"/><path d="M6 10.5l2.6 2.6L14 7.5" stroke="#1E332C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Ongoing training in Australia &amp; overseas</li>
+      </ul>
       <a class="btn js-open-modal" href="#book" style="margin-top:28px">Book with our team</a>
     </div>
+    <div class="doc-photo reveal"><img src="assets/dr-alfred-tao.jpg" alt="Dr Alfred Tao, Dentist at Bella Dental Penrith"></div>
   </div>
 </section>
 
