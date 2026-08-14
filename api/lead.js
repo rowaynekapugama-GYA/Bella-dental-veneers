@@ -53,8 +53,9 @@ export default async function handler(req, res) {
     });
     const data = await r.json();
     if (!r.ok || !data || !data.data || data.data.succeeded < 1) {
-      console.error("SMTP2go send failed", data);
-      return res.status(502).json({ ok: false, error: "Send failed" });
+      console.error("SMTP2go send failed", JSON.stringify(data));
+      const detail = data && data.data && (data.data.error || (data.data.failures && data.data.failures[0]));
+      return res.status(502).json({ ok: false, error: "Send failed", detail: detail || null });
     }
     return res.status(200).json({ ok: true });
   } catch (err) {

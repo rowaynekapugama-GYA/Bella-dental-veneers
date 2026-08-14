@@ -788,7 +788,10 @@ function handleLead(formId, successId){
         body: JSON.stringify(payload)
       });
       const data = await res.json().catch(()=>null);
-      if(!res.ok || !data || !data.ok) throw new Error('send failed');
+      if(!res.ok || !data || !data.ok){
+        console.error('Lead submit failed', res.status, data);
+        throw new Error('HTTP '+res.status);
+      }
       leadSubmitted = true;
       if(typeof fbq === 'function'){ fbq('track','Lead',{value:100,currency:'AUD'}); }
       f.style.display='none';
@@ -798,7 +801,7 @@ function handleLead(formId, successId){
       const msg = document.createElement('p');
       msg.className = 'form-error';
       msg.style.cssText = 'color:#a33d2e;font-size:14px;text-align:center;margin-top:12px';
-      msg.textContent = 'Something went wrong sending your enquiry. Please try again, or call us on (02) 4722 6300.';
+      msg.textContent = 'Something went wrong sending your enquiry ('+(ex.message||'network error')+'). Please try again, or call us on (02) 4722 6300.';
       f.appendChild(msg);
     }
   });
