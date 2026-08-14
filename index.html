@@ -6,6 +6,23 @@
 <title>Porcelain & Composite Veneers Penrith | Bella Dental</title>
 <meta name="description" content="Transform your smile with custom porcelain or composite veneers at Bella Dental Penrith. Multi-award-winning clinic, 4.9 stars from 495+ Google reviews. Book your consultation today.">
 <meta name="robots" content="noindex, nofollow">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1375768084045423');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1375768084045423&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -730,21 +747,71 @@ const io = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Lead form (front-end only — wire to SmileOx / LeadConnector webhook or replace with SmileOx form embed)
-// Lead forms (hero + popup) — front-end only, wire to SmileOx / LeadConnector
+// ===== SmileOx lead intake via SMTP2go HTTPS API =====
+// Leads are emailed as JSON to the SmileOx intake address, creating a lead in the CRM.
+const SMILEOX_INTAKE = 'free-veneers-consultation+40dfb2a5-b291-47a4-8c60-3a1f9d5ed63e@intake.smileox.com.au';
+const SMTP2GO_API_KEY = 'api-BF0D261C163D446095BBBD4D5F802E55';
+const SENDER = 'no-reply@belladental.com.au'; // must match the SMTP2go verified sender domain
+
+function normalisePhone(p){
+  let v = p.replace(/[^\d+]/g,'');
+  if(v.startsWith('0')) v = '+61'+v.slice(1);
+  else if(!v.startsWith('+') && v.length) v = '+61'+v;
+  return v;
+}
+
 let leadSubmitted = false;
 function handleLead(formId, successId){
-  document.getElementById(formId).addEventListener('submit', function(e){
+  const form = document.getElementById(formId);
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
     const f = this;
     if(!f.first_name.value.trim() || !f.last_name.value.trim() || !f.phone.value.trim() || !f.email.value.trim()){
       f.reportValidity();
       return;
     }
-    // TODO SMILEOX: POST payload here, e.g.
-    // fetch('SMILEOX_WEBHOOK_URL',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:f.first_name.value,last_name:f.last_name.value,phone:f.phone.value,email:f.email.value,treatment:f.querySelector('input[name=treatment]:checked').value,source:'Veneers Landing Page'})});
-    leadSubmitted = true;
-    f.style.display='none';
-    document.getElementById(successId).style.display='block';
+    const btn = f.querySelector('button[type=submit]');
+    const btnText = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending\u2026';
+    let err = f.querySelector('.form-error');
+    if(err) err.remove();
+
+    const payload = {
+      firstName: f.first_name.value.trim(),
+      lastName: f.last_name.value.trim(),
+      email: f.email.value.trim(),
+      phoneNumber: normalisePhone(f.phone.value),
+      treatment: f.querySelector('input[name=treatment]:checked').value,
+      source: 'Veneers Landing Page',
+      pageUrl: window.location.href
+    };
+
+    try{
+      const res = await fetch('https://api.smtp2go.com/v3/email/send',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({
+          api_key: SMTP2GO_API_KEY,
+          sender: SENDER,
+          to: [SMILEOX_INTAKE],
+          subject: 'Website form submission',
+          text_body: JSON.stringify(payload)
+        })
+      });
+      const data = await res.json();
+      if(!res.ok || !data || !data.data || data.data.succeeded < 1) throw new Error('send failed');
+      leadSubmitted = true;
+      if(typeof fbq === 'function'){ fbq('track','Lead'); }
+      f.style.display='none';
+      document.getElementById(successId).style.display='block';
+    }catch(ex){
+      btn.disabled = false; btn.textContent = btnText;
+      const msg = document.createElement('p');
+      msg.className = 'form-error';
+      msg.style.cssText = 'color:#a33d2e;font-size:14px;text-align:center;margin-top:12px';
+      msg.textContent = 'Something went wrong sending your enquiry. Please try again, or call us on (02) 4722 6300.';
+      f.appendChild(msg);
+    }
   });
 }
 handleLead('lead-form','form-success');
