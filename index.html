@@ -747,12 +747,7 @@ const io = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Lead form (front-end only — wire to SmileOx / LeadConnector webhook or replace with SmileOx form embed)
-// ===== SmileOx lead intake via SMTP2go HTTPS API =====
-// Leads are emailed as JSON to the SmileOx intake address, creating a lead in the CRM.
-const SMILEOX_INTAKE = 'free-veneers-consultation+40dfb2a5-b291-47a4-8c60-3a1f9d5ed63e@intake.smileox.com.au';
-const SMTP2GO_API_KEY = 'api-BF0D261C163D446095BBBD4D5F802E55';
-const SENDER = 'no-reply@belladental.com.au'; // must match the SMTP2go verified sender domain
-
+// ===== Lead submission: POST to /api/lead (Vercel serverless -> SMTP2go -> SmileOx) =====
 function normalisePhone(p){
   let v = p.replace(/[^\d+]/g,'');
   if(v.startsWith('0')) v = '+61'+v.slice(1);
@@ -787,21 +782,15 @@ function handleLead(formId, successId){
     };
 
     try{
-      const res = await fetch('https://api.smtp2go.com/v3/email/send',{
+      const res = await fetch('/api/lead',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          api_key: SMTP2GO_API_KEY,
-          sender: SENDER,
-          to: [SMILEOX_INTAKE],
-          subject: 'Website form submission',
-          text_body: JSON.stringify(payload)
-        })
+        body: JSON.stringify(payload)
       });
-      const data = await res.json();
-      if(!res.ok || !data || !data.data || data.data.succeeded < 1) throw new Error('send failed');
+      const data = await res.json().catch(()=>null);
+      if(!res.ok || !data || !data.ok) throw new Error('send failed');
       leadSubmitted = true;
-      if(typeof fbq === 'function'){ fbq('track','Lead'); }
+      if(typeof fbq === 'function'){ fbq('track','Lead',{value:100,currency:'AUD'}); }
       f.style.display='none';
       document.getElementById(successId).style.display='block';
     }catch(ex){
